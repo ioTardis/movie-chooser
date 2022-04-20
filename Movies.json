@@ -1,0 +1,100 @@
+{
+	"movies": [
+	{
+		"title": "Drive",
+		"actor": "Ryan Gosling",
+		"director": "Nicolas Refn",
+		"duration": 100
+	},
+	{
+		"title": "Rocketman",
+		"actor": "Taron Egerton",
+		"director": "Dexter Fletcher",
+		"duration": 120
+	},
+	{
+		"title": "Kimi",
+		"actor": "Zoe Kravitz",
+		"director": "Steven Soderbergh",
+		"duration": 90
+	},
+	{
+		"title": "Back to the Future Part II",
+		"actor": ["Michael J. Fox", "Christopher Lloyd"],
+		"director": "Robert Zemeckis",
+		"duration": 110
+	},
+	{
+		"title": "Back to the Future Part III",
+		"actor": ["Michael J. Fox", "Christopher Lloyd"],
+		"director": "Robert Zemeckis",
+		"duration": 120
+	},
+	{
+		"title": "The Current War",
+		"actor": "Benedict Cumberbatch",
+		"director": "Alfonso Gomez-Rejon",
+		"duration": 100
+	},
+	{
+		"title": "Ford v Ferrari",
+		"actor": ["Christian Bale", "Matt Damon"],
+		"director": "James Mangold",
+		"duration": 152
+	},
+	{
+		"title": "DeLorean: Living the Dream",
+		"actor": "",
+		"director": "Jordan Livingston",
+		"duration": 80
+	},
+	{
+		"title": "Exit Through the Gift Shop",
+		"actor": "",
+		"director": "Banksy",
+		"duration": 90
+	},
+	{
+		"title": "Drive My Car",
+		"actor": "Hidetoshi Nishijima",
+		"director": "Ryûsuke Hamaguchi",
+		"duration": 180
+	},
+	{
+		"title": "Roma",
+		"actor": "Yalitza Aparicio",
+		"director": "Alfonso Cuarón",
+		"duration": 135
+	},
+	{
+		"title": "Free Solo",
+		"actor": "Alex Honnold",
+		"director": "Jimmy Chin",
+		"duration": 100
+	},
+	{
+		"title": "The Little Things",
+		"actor": ["Denzel Washington", "Rami Malek"],
+		"director": "John Lee Hancock",
+		"duration": 100
+	},
+	{
+		"title": "Her",
+		"actor": ["Joaquin Phoenix", "Scarlett Johansson"],
+		"director": "Spike Jonze",
+		"duration": 120
+	},
+	{
+		"title": "The Truman Show",
+		"actor": "Jim Carrey",
+		"director": "Peter Weir",
+		"duration": 100
+	},
+	{
+		"title": "The Guilty",
+		"actor": "Jake Gyllenhaal",
+		"director": "Antoine Fuqua",
+		"duration": 90
+	}
+]
+}
