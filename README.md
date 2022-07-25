@@ -9,6 +9,7 @@ Console program written in Python that interacts with list of movies in json for
 - Choose a movie by specific director
 - Choose a movie by specific actor
 - Choose a movie of a certain duration
+- Show which streaming service have it
 
 ## Ideas for future development
 
@@ -23,7 +24,8 @@ Console program written in Python that interacts with list of movies in json for
 		"title": "Movie title",
 		"actor": "Famous Actor",
 		"director": "Best Director",
-		"duration": 100
+		"duration": 100,
+		"available": "Netflix"
 	}
 ]}
 ```

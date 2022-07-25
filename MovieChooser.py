@@ -13,6 +13,7 @@ def random_movie(movie_list):
 The director: {movie_list[random_index]["director"]}. 
 Duration: {movie_list[random_index]["duration"]} minutes.
 Actor: {movie_list[random_index]["actor"]}.
+Available: {movie_list[random_index]["available"]}
     ''')
 
 #create a list of movies by a specific director
@@ -76,14 +77,18 @@ if data != []:
 The director: {data["movies"][random_index]["director"]}. 
 Duration: {data["movies"][random_index]["duration"]} minutes.
 Actor: {data["movies"][random_index]["actor"]}.
+Available on: {data["movies"][random_index]["available"]}
                 ''')
                 exit_code = True
             case '2':
                 director_movie(input('Insert director name: '))
+                exit_code = True
             case '3':
                 actor_movie(input('Insert actor name: '))
+                exit_code = True
             case '4':
                 duration_movie(int(input('Insert movie duration in minutes: ')))
+                exit_code = True
     print('Have fun!')
     os.system("pause")
 else:
