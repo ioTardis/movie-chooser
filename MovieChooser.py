@@ -9,6 +9,15 @@ exit_code = False
 f = open('Movies.json') #import json file
 data = json.load(f)
 
+def random_from_list():
+    random_index = random.randint(0, len(data['movies']) - 1)
+    sg.popup(f'''Your movie is {data["movies"][random_index]["title"]}
+The director: {data["movies"][random_index]["director"]}
+Duration: {data["movies"][random_index]["duration"]} minutes
+Actor: {data["movies"][random_index]["actor"]}
+Available on: {data["movies"][random_index]["available"]}
+        ''', title='Your movie')
+
 sg.theme('DarkAmber')
 layout = [  [sg.Text('')],
             [sg.Text('Welcome to the movie chooser! Choose the option:')],
@@ -22,6 +31,8 @@ while True:
     event, values = window.read()
     if event == sg.WIN_CLOSED or event == 'Exit': # if user closes window or clicks cancel
         break
+    elif event == 'From the list':
+        random_from_list()
 
 window.close()
 
