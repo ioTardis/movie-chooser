@@ -2,6 +2,7 @@
 
 :clapper: simple program that helps to finally choose a movie from a list for the evening.  
 Console program written in Python that interacts with list of movies in json formatted exsternal file.
+Graphical interface is created using PySimpleGUI
 
 ## Features
 
@@ -13,7 +14,6 @@ Console program written in Python that interacts with list of movies in json for
 
 ## Ideas for future development
 
-- Graphical interface
 - Possibility to edit list in the program
 
 ### List format

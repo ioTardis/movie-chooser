@@ -1,9 +1,5 @@
-from curses import window
 import json
 import random
-import os
-from this import s
-from unicodedata import name
 import PySimpleGUI as sg
 
 f = open('Movies.json') #import json file
