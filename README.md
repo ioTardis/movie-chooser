@@ -15,6 +15,7 @@ Graphical interface is created using PySimpleGUI
 ## Ideas for future development
 
 - Possibility to edit list in the program
+- Change the format of a storage
 
 ### List format
 ```
