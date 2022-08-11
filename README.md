@@ -16,6 +16,7 @@ Graphical interface is created using PySimpleGUI
 
 - Possibility to edit list in the program
 - Change the format of a storage
+- Retrieve data about movie with API and don't store it locally
 
 ### List format
 ```
