@@ -1,5 +1,6 @@
 import json
 import random
+import re
 import PySimpleGUI as sg
 
 f = open('Movies.json') #import json file
@@ -67,6 +68,15 @@ def duration_movie(duration):
     else:
         sg.popup('There is no such a movie with that duration time', title='Not found')
 
+#check string input for only letters
+def check_input(input):
+    letter_pattern = "[A-Za-z]"
+    if re.match(letter_pattern, input):
+        return True
+    else:
+        return False
+
+
 sg.theme('DarkAmber')
 if data != []:
     layout = [  [sg.Text('')],
@@ -85,11 +95,21 @@ if data != []:
             random_from_list()
         elif event == 'Choose director':
             name = sg.popup_get_text('Enter the name:', title='Enter director')
-            director_movie(name)
+            if check_input(name):
+                director_movie(name)
+            else:
+                sg.popup_error('Invalid input.Please, enter name')
         elif event == 'From associated actor':
             name = sg.popup_get_text('Enter the name:', title='Enter actor')
-            actor_movie(name)
+            if check_input(name):
+                actor_movie(name)
+            else:
+                sg.popup_error('Invalid input. Please, enter name')
         elif event == 'From time duration':
-            time = sg.popup_get_text('Enter duration time:', title='Enter time')
-            duration_movie(int(time))
+            time = sg.popup_get_text('Enter duration time in minutes. E.g: 90:', title='Enter time')
+            number_pattern = "^\\d+$"
+            if re.match(number_pattern, time):
+                duration_movie(int(time))
+            else:
+                sg.popup_error('Invalid input. Please, enter number')
     window.close()

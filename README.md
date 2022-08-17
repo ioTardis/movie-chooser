@@ -1,7 +1,7 @@
 # movie-chooser
 
 :clapper: simple program that helps to finally choose a movie from a list for the evening.  
-Console program written in Python that interacts with list of movies in json formatted exsternal file.
+Console program written in Python that interacts with list of movies in json formatted external file.
 Graphical interface is created using PySimpleGUI
 
 ## Features
@@ -17,6 +17,8 @@ Graphical interface is created using PySimpleGUI
 - Possibility to edit list in the program
 - Change the format of a storage
 - Retrieve data about movie with API and don't store it locally
+- Display a clickable link to get to the movie
+- Update searching system. Case insensitive, only with name or surname
 
 ### List format
 ```
