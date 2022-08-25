@@ -1,6 +1,8 @@
 import json
+from logging.config import valid_ident
 import random
 import re
+from secrets import choice
 import PySimpleGUI as sg
 
 f = open('Movies.json') #import json file
@@ -69,13 +71,57 @@ def duration_movie(duration):
         sg.popup('There is no such a movie with that duration time', title='Not found')
 
 #check string input for only letters
-def check_input(input):
+def validate_text(input):
     letter_pattern = "[A-Za-z]"
     if re.match(letter_pattern, input):
         return True
     else:
         return False
 
+#check number input for digits
+def validate_number(input):
+    number_pattern = "^\\d+$"
+    if re.match(number_pattern, input):
+        return True
+    else:
+        return False
+
+#add new movie to the json file
+def add_movie(values):
+    print(values)
+
+def open_window():
+    layout = [[sg.Text('Add a new movie into your list', key='add')],
+             [sg.Text('*Title: '), sg.InputText('The Batman', key='-TITLE-')],
+             [sg.Text('Director: '), sg.InputText('Matt Reeves', key='-DIRECTOR-')],
+             [sg.Text('Actor: '), sg.InputText('Robert Pattinson', key='-ACTOR-')],
+             [sg.Text('Duration: '), sg.InputText('176', key='-DURATION-')],
+             [sg.Text('Available: '), sg.InputText('HBO', key='-AVAILABLE-')],
+             [sg.Button('OK'), sg.Button('Exit')]]
+    window = sg.Window('Add movie', layout, modal=True)
+    choice = None
+    while True:
+        event, values = window.read()
+        if event == 'Exit' or event == sg.WIN_CLOSED:
+            break
+        elif event == 'OK':
+            if validate_text(values['-TITLE-']):
+                if validate_text(values['-DIRECTOR-']):
+                    if validate_text(values['-ACTOR-']):
+                        if validate_number(values['-DURATION-']):
+                            if validate_text(values['-AVAILABLE-']):
+                               add_movie(values)
+                            else:
+                                sg.popup_error('Invalid input.Please, enter availability')
+                        else:
+                            sg.popup_error('Invalid input.Please, enter duration')
+                    else:
+                        sg.popup_error('Invalid input.Please, enter actor name')
+                else:
+                    sg.popup_error('Invalid input.Please, enter director name')
+            else:
+                sg.popup_error('Invalid input.Please, enter title')
+    window.close()
 
 sg.theme('DarkAmber')
 if data != []:
@@ -83,6 +129,7 @@ if data != []:
             [sg.Text('Welcome to the movie chooser! Choose the option:')],
             [sg.Button('From the list'), sg.Button('Choose director')],
             [sg.Button('From associated actor'), sg.Button('From time duration')],
+            [sg.Button('Add new movie')],
             [sg.Button('Exit')],
             [sg.Text('')] ]
             
@@ -95,21 +142,22 @@ if data != []:
             random_from_list()
         elif event == 'Choose director':
             name = sg.popup_get_text('Enter the name:', title='Enter director')
-            if check_input(name):
+            if validate_text(name):
                 director_movie(name)
             else:
                 sg.popup_error('Invalid input.Please, enter name')
         elif event == 'From associated actor':
             name = sg.popup_get_text('Enter the name:', title='Enter actor')
-            if check_input(name):
+            if validate_text(name):
                 actor_movie(name)
             else:
                 sg.popup_error('Invalid input. Please, enter name')
         elif event == 'From time duration':
             time = sg.popup_get_text('Enter duration time in minutes. E.g: 90:', title='Enter time')
-            number_pattern = "^\\d+$"
-            if re.match(number_pattern, time):
+            if validate_number(time):
                 duration_movie(int(time))
             else:
                 sg.popup_error('Invalid input. Please, enter number')
+        elif event == 'Add new movie':
+            open_window()
     window.close()
