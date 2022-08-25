@@ -88,7 +88,15 @@ def validate_number(input):
 
 #add new movie to the json file
 def add_movie(values):
-    print(values)
+    data['movies'].append({
+        "title": values['-TITLE-'],
+		"actor": values['-ACTOR-'],
+		"director": values['-DIRECTOR-'],
+		"duration": values['-DURATION-'], 
+		"available": values['-AVAILABLE-']
+    })
+    with open('Movies.json', 'w') as json_file:
+        json.dump(data, json_file, indent=5)
 
 def open_window():
     layout = [[sg.Text('Add a new movie into your list', key='add')],
@@ -100,6 +108,7 @@ def open_window():
              [sg.Button('OK'), sg.Button('Exit')]]
     window = sg.Window('Add movie', layout, modal=True)
     choice = None
+
     while True:
         event, values = window.read()
         if event == 'Exit' or event == sg.WIN_CLOSED:
@@ -111,6 +120,8 @@ def open_window():
                         if validate_number(values['-DURATION-']):
                             if validate_text(values['-AVAILABLE-']):
                                add_movie(values)
+                               sg.popup('Movie added successfully in the list!', title='Success')
+                               break
                             else:
                                 sg.popup_error('Invalid input.Please, enter availability')
                         else:
