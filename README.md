@@ -22,7 +22,7 @@ Graphical interface is created using PySimpleGUI
 - Add a feature to change the list file
 
 ### List format
-```
+```json
 {
 	"movies": [
 	{

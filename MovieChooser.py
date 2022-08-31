@@ -1,8 +1,7 @@
 import json
-from logging.config import valid_ident
 import random
 import re
-from secrets import choice
+
 import PySimpleGUI as sg
 
 f = open("Movies.json")  # import json file
@@ -160,9 +159,7 @@ def open_window():
                                 )
                                 break
                             else:
-                                sg.popup_error(
-                                    "Invalid input.Enter availability"
-                                )
+                                sg.popup_error("Invalid input.Enter availability")
                         else:
                             sg.popup_error("Invalid input. Enter duration")
                     else:
