@@ -140,7 +140,6 @@ def open_window():
         [sg.Button("OK"), sg.Button("Exit")],
     ]
     window = sg.Window("Add movie", layout, modal=True)
-    choice = None
 
     while True:
         event, values = window.read()
