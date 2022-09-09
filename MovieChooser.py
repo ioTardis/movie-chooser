@@ -87,6 +87,29 @@ def open_window():
     window.close()
 
 
+def choose_director():
+    directors = map(lambda x: (data["movies"][x]["director"]), range(len(data["movies"])))
+    layout = [
+        [sg.Text("")],
+        [sg.Listbox(values=list(dict.fromkeys(directors)), size=(40, 10))],
+        [sg.Text("")],
+        [sg.Text("Enter director"), sg.InputText(key="-DIRECTOR-")],
+        [sg.Button("OK"), sg.Button("Exit")]
+    ]
+    window = sg.Window("Choose director", layout, modal=True)
+
+    while True:
+        event, values = window.read()
+        if event == "Exit" or event == sg.WIN_CLOSED:
+            break
+        elif event == "OK":
+            if validate_text(values["-DIRECTOR-"]):
+                director_movie(data, values["-DIRECTOR-"])
+                break
+            else:
+                sg.popup_error("Invalid input.Please, enter name")
+    window.close()
+
 sg.theme("DarkAmber")
 if data != []:
     layout = [
@@ -120,11 +143,7 @@ if data != []:
         elif event == "From the list":
             random_from_list(data)
         elif event == "Choose director":
-            name = sg.popup_get_text("Enter the name:", title="Enter director")
-            if validate_text(name):
-                director_movie(data, name)
-            else:
-                sg.popup_error("Invalid input.Please, enter name")
+            choose_director()
         elif event == "From associated actor":
             name = sg.popup_get_text("Enter the name:", title="Enter actor")
             if validate_text(name):
