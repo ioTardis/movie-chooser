@@ -39,7 +39,7 @@ def director_movie(data, name):
     for movie in data["movies"]:
         if data["movies"][i]["director"] == name:
             movies_list.append(data["movies"][i])
-        i = 1
+        i += 1
     if movies_list != []:
         random_movie(movies_list)
     else:
@@ -58,7 +58,7 @@ def actor_movie(data, name):
         for actor in data["movies"][i]["actor"]:
             if actor == name:
                 movies_list.append(data["movies"][i])
-        i = 1
+        i += 1
     if movies_list != []:
         random_movie(movies_list)
     else:

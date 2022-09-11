@@ -1,4 +1,5 @@
 import json
+from msilib.schema import ListBox
 import re
 
 import PySimpleGUI as sg
@@ -91,7 +92,7 @@ def choose_director():
     directors = map(lambda x: (data["movies"][x]["director"]), range(len(data["movies"])))
     layout = [
         [sg.Text("")],
-        [sg.Listbox(values=list(dict.fromkeys(directors)), size=(40, 10))],
+        [sg.Listbox(values=list(dict.fromkeys(directors)), size=(40, 10), select_mode=sg.SELECT_MODE_SINGLE, enable_events=True)],
         [sg.Text("")],
         [sg.Text("Enter director"), sg.InputText(key="-DIRECTOR-")],
         [sg.Button("OK"), sg.Button("Exit")]
