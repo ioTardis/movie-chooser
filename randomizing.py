@@ -74,7 +74,7 @@ def duration_movie(data, duration):
     for movie in data["movies"]:
         if data["movies"][i]["duration"] <= duration:
             movies_list.append(data["movies"][i])
-        i = 1
+        i += 1
     if movies_list != []:
         random_movie(movies_list)
     else:
