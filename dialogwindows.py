@@ -1,5 +1,5 @@
-import re
 import json
+import re
 
 import PySimpleGUI as sg
 from randomizing import *
@@ -8,12 +8,23 @@ from randomizing import *
 
 
 def choose_director(data):
-    directors = map(lambda x: (data["movies"][x]["director"]), range(len(data["movies"])))
+    directors = map(
+        lambda x: (data["movies"][x]["director"]),
+range(len(data["movies"]))
+    )
     layout = [
         [sg.Text("")],
-        [sg.Listbox(values=list(dict.fromkeys(directors)), size=(40, 10), select_mode=sg.SELECT_MODE_SINGLE, enable_events=True, key="-DIRECTORLIST-")],
+        [
+            sg.Listbox(
+                values=list(dict.fromkeys(directors)),
+                size=(40, 10),
+                select_mode=sg.SELECT_MODE_SINGLE,
+                enable_events=True,
+                key="-DIRECTORLIST-"
+            )
+        ],
         [sg.Text("")],
-        [sg.Button("OK"), sg.Button("Exit")]
+        [sg.Button("OK"), sg.Button("Exit")],
     ]
     window = sg.Window("Choose director", layout, modal=True)
 
@@ -22,7 +33,7 @@ def choose_director(data):
         if event == "Exit" or event == sg.WIN_CLOSED:
             break
         elif event == "OK":
-            director_movie(data, values['-DIRECTORLIST-'][0])
+            director_movie(data, values["-DIRECTORLIST-"][0])
             break
     window.close()
 
@@ -38,13 +49,21 @@ def choose_actor(data):
                 actors.append(element["actor"][index2])
         else:
             actors.append(element["actor"])
-    while("" in actors):
+    while "" in actors:
         actors.remove("")
     layout = [
         [sg.Text("")],
-        [sg.Listbox(values=list(dict.fromkeys(actors)), size=(40, 10), select_mode=sg.SELECT_MODE_SINGLE, enable_events=True, key="-ACTORLIST-")],
+        [
+            sg.Listbox(
+                values=list(dict.fromkeys(actors)),
+                size=(40, 10),
+                select_mode=sg.SELECT_MODE_SINGLE,
+                enable_events=True,
+                key="-ACTORLIST-"
+            )
+        ],
         [sg.Text("")],
-        [sg.Button("OK"), sg.Button("Exit")]
+        [sg.Button("OK"), sg.Button("Exit")],
     ]
     window = sg.Window("Choose actor", layout, modal=True)
 
@@ -53,7 +72,7 @@ def choose_actor(data):
         if event == "Exit" or event == sg.WIN_CLOSED:
             break
         elif event == "OK":
-            actor_movie(data, values['-ACTORLIST-'][0])
+            actor_movie(data, values["-ACTORLIST-"][0])
             break
     window.close()
 

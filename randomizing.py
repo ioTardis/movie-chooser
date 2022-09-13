@@ -1,7 +1,9 @@
 import random
+
 import PySimpleGUI as sg
 
 # choose a random movie
+
 
 def random_from_list(data):
     random_index = random.randint(0, len(data["movies"]) - 1)
@@ -14,6 +16,7 @@ Available on: {data["movies"][random_index]["available"]}
         """,
         title="Your movie",
     )
+
 
 # function to choose movie from the given list
 
@@ -29,6 +32,7 @@ Available on: {movie_list[random_index]["available"]}
         """,
         title="Your movie",
     )
+
 
 # create a list of movies by a specific director
 
@@ -79,4 +83,3 @@ def duration_movie(data, duration):
         random_movie(movies_list)
     else:
         sg.popup("Cannot find a movie with that duration", title="Not found")
-
