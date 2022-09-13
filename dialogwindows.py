@@ -9,8 +9,7 @@ from randomizing import *
 
 def choose_director(data):
     directors = map(
-        lambda x: (data["movies"][x]["director"]),
-range(len(data["movies"]))
+        lambda x: (data["movies"][x]["director"]), range(len(data["movies"]))
     )
     layout = [
         [sg.Text("")],
@@ -20,7 +19,7 @@ range(len(data["movies"]))
                 size=(40, 10),
                 select_mode=sg.SELECT_MODE_SINGLE,
                 enable_events=True,
-                key="-DIRECTORLIST-"
+                key="-DIRECTORLIST-",
             )
         ],
         [sg.Text("")],
@@ -59,7 +58,7 @@ def choose_actor(data):
                 size=(40, 10),
                 select_mode=sg.SELECT_MODE_SINGLE,
                 enable_events=True,
-                key="-ACTORLIST-"
+                key="-ACTORLIST-",
             )
         ],
         [sg.Text("")],
@@ -119,6 +118,7 @@ def add_movie_window(data):
             else:
                 sg.popup_error("Invalid input.Enter title")
     window.close()
+
 
 # add new movie to the json file
 

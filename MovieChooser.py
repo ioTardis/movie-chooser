@@ -15,16 +15,16 @@ if data != []:
         [sg.Text("Welcome to the movie chooser! Choose the option:")],
         [
             sg.Button("From the list", size=(20, 1)),
-            sg.Button("Choose director", size=(20, 1))
+            sg.Button("Choose director", size=(20, 1)),
         ],
         [
             sg.Button("From associated actor", size=(20, 1)),
-            sg.Button("From time duration", size=(20, 1))
+            sg.Button("From time duration", size=(20, 1)),
         ],
         [sg.Text("")],
         [
-            sg.Button("Add new movie", size=(20, 1), button_color=('white', '#212121')),
-            sg.Button("Edit list", size=(20, 1), button_color=('white', '#212121'))
+            sg.Button("Add new movie", size=(20, 1), button_color=("white", "#212121")),
+            sg.Button("Edit list", size=(20, 1), button_color=("white", "#212121"))
         ],
         [sg.Text("")],
         [sg.Button("Exit")],

@@ -2,6 +2,7 @@ import random
 
 import PySimpleGUI as sg
 
+
 # choose a random movie
 
 
