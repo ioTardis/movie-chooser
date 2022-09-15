@@ -1,8 +1,8 @@
 import json
 
 import PySimpleGUI as sg
-from dialogwindows import *
-from randomizing import *
+from dialogwindows import choose_director, choose_actor
+from randomizing import random_from_list, duration_movie
 
 f = open("Movies.json")  # import json file
 data = json.load(f)
@@ -24,7 +24,7 @@ if data != []:
         [sg.Text("")],
         [
             sg.Button("Add new movie", size=(20, 1), button_color=("white", "#212121")),
-            sg.Button("Edit list", size=(20, 1), button_color=("white", "#212121"))
+            sg.Button("Edit list", size=(20, 1), button_color=("white", "#212121")),
         ],
         [sg.Text("")],
         [sg.Button("Exit")],

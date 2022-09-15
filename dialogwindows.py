@@ -2,7 +2,7 @@ import json
 import re
 
 import PySimpleGUI as sg
-from randomizing import *
+from randomizing import director_movie, actor_movie
 
 ## modal window to choose director
 
