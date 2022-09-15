@@ -83,4 +83,3 @@ def duration_movie(data, duration):
         random_movie(movies_list)
     else:
         sg.popup("Cannot find a movie with that duration", title="Not found")
-        

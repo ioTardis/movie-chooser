@@ -2,7 +2,7 @@ import json
 import re
 
 import PySimpleGUI as sg
-from randomizing import director_movie, actor_movie
+from randomizing import actor_movie, director_movie
 
 ## modal window to choose director
 
@@ -37,7 +37,7 @@ def choose_director(data):
     window.close()
 
 
-## modal window to choose actor
+# modal window to choose actor
 
 
 def choose_actor(data):
@@ -76,7 +76,7 @@ def choose_actor(data):
     window.close()
 
 
-## dialog window to input new movie information
+# dialog window to input new movie information
 
 
 def add_movie_window(data):
