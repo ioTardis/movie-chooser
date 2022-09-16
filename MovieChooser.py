@@ -1,7 +1,7 @@
 import json
 
 import PySimpleGUI as sg
-from dialogwindows import add_movie_window, choose_actor, choose_director, validate_number
+from dialogwindows import add_movie_window, choose_actor_window, choose_director_window, edit_list_window, validate_number
 from randomizing import duration_movie, random_from_list
 
 f = open("Movies.json")
@@ -41,9 +41,9 @@ if data != []:
         elif event == "From the list":
             random_from_list(data)
         elif event == "Choose director":
-            choose_director(data)
+            choose_director_window(data)
         elif event == "From associated actor":
-            choose_actor(data)
+            choose_actor_window(data)
         elif event == "From time duration":
             time = sg.popup_get_text(
                 "Enter duration time in minutes. E.g: 90:", title="Enter time"
@@ -54,4 +54,6 @@ if data != []:
                 sg.popup_error("Invalid input. Please, enter number")
         elif event == "Add new movie":
             add_movie_window(data)
+        elif event == "Edit list":
+            edit_list_window(data)
     window.close()
