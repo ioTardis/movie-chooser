@@ -11,15 +11,16 @@ Graphical interface is created using PySimpleGUI
 - Choose a movie by specific actor
 - Choose a movie of a certain duration
 - Show which streaming service have it
+- Display all movies in the list
+- Edit movies in the list
+- Add movies to the list
 
 ## Ideas for future development
 
-- Possibility to edit list in the program
 - Change the format of a storage
 - Retrieve data about movie with API and don't store it locally
 - Display a clickable link to get to the movie
 - Update searching system. Case insensitive, only with name or surname
-- Add a feature to change the list file
 
 ### List format
 ```json
