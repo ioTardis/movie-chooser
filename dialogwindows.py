@@ -1,4 +1,3 @@
-from curses import window
 import json
 import re
 
@@ -97,7 +96,7 @@ def add_movie_window(data):
         if event == "Exit" or event == sg.WIN_CLOSED:
             break
         elif event == "OK":
-            if validate_text(values["-TITLE-"]):
+            if values["-TITLE-"]:
                 if validate_text(values["-DIRECTOR-"]):
                     if validate_text(values["-ACTOR-"]):
                         if validate_number(values["-DURATION-"]):
@@ -117,7 +116,7 @@ def add_movie_window(data):
                 else:
                     sg.popup_error("Invalid input.Enter director name")
             else:
-                sg.popup_error("Invalid input.Enter title")
+                sg.popup_error("Enter title")
     window.close()
 
 
@@ -142,9 +141,7 @@ def add_movie(data, values):
 
 
 def edit_list_window(data):
-    movies = map(
-        lambda x: (data["movies"][x]["title"]), range(len(data["movies"]))
-    )
+    movies = map(lambda x: (data["movies"][x]["title"]), range(len(data["movies"])))
     layout = [
         [sg.Text("")],
         [
@@ -161,7 +158,7 @@ def edit_list_window(data):
         [sg.Text("")],
         [sg.Button("Exit")],
     ]
-    window = sg.Window("Add movie", layout, modal=True)
+    window = sg.Window("Edit list", layout, modal=True)
 
     while True:
         event, values = window.read()
@@ -225,27 +222,25 @@ def edit_movie_window(data, title):
             break
         elif event == "OK":
             if values["-TITLE-"]:
-                if validate_text(values["-TITLE-"]):
-                    if validate_text(values["-ACTOR-"]):
-                        if validate_text(values["-DIRECTOR-"]):
-                            if validate_number(values["-DURATION-"]):
-                                if validate_text(values["-AVAILABLE-"]):
-                                    edit_movie(data, values, movie_index)
-                                    sg.popup(
-                                        "Movie edited successfully in the list!",
-                                        title="Success",
-                                    )
-                                    break
-                                else:
-                                    sg.popup_error("Invalid input.Enter availability")
+                if validate_text(values["-ACTOR-"]):
+                    if validate_text(values["-DIRECTOR-"]):
+                        if validate_number(values["-DURATION-"]):
+                            if validate_text(values["-AVAILABLE-"]):
+                                edit_movie(data, values, movie_index)
+                                sg.popup(
+                                    "Movie edited successfully in the list!",
+                                    title="Success",
+                                )
+                                break
                             else:
-                                sg.popup_error("Invalid input. Enter duration")
+                                sg.popup_error("Invalid input.Enter availability")
                         else:
-                            sg.popup_error("Invalid input.Enter actor name")
+                            sg.popup_error("Invalid input. Enter duration")
                     else:
-                        sg.popup_error("Invalid input.Enter director name")
+                        sg.popup_error("Invalid input.Enter actor name")
                 else:
-                    sg.popup_error("Invalid input.Enter title")
+                    sg.popup_error("Invalid input.Enter director name")
+
             else:
                 sg.popup_error("Title is required")
     window.close()
@@ -260,7 +255,7 @@ def edit_movie(data, values, index):
     data["movies"][index]["director"] = values["-DIRECTOR-"]
     data["movies"][index]["duration"] = values["-DURATION-"]
     data["movies"][index]["available"] = values["-AVAILABLE-"]
-    
+
     with open("Movies.json", "w") as json_file:
         json.dump(data, json_file, indent=5)
 

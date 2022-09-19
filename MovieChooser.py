@@ -1,7 +1,13 @@
 import json
 
 import PySimpleGUI as sg
-from dialogwindows import add_movie_window, choose_actor_window, choose_director_window, edit_list_window, validate_number
+from dialogwindows import (
+    add_movie_window, 
+    choose_actor_window, 
+    choose_director_window, 
+    edit_list_window, 
+    validate_number,
+)
 from randomizing import duration_movie, random_from_list
 
 f = open("Movies.json")
