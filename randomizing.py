@@ -6,12 +6,17 @@ import PySimpleGUI as sg
 
 
 def random_from_list(data):
+    actors = []
     random_index = random.randint(0, len(data["movies"]) - 1)
+    if type(data["movies"][random_index]["actor"]) == list:
+        actors = ", ".join(data["movies"][random_index]["actor"])
+    else:
+        actors = data["movies"][random_index]["actor"]
     sg.popup(
         f"""Your movie is {data["movies"][random_index]["title"]}
 The director: {data["movies"][random_index]["director"]}
 Duration: {data["movies"][random_index]["duration"]} minutes
-Actor: {data["movies"][random_index]["actor"]}
+Actor: {actors}
 Available on: {data["movies"][random_index]["available"]}
         """,
         title="Your movie",
@@ -22,12 +27,17 @@ Available on: {data["movies"][random_index]["available"]}
 
 
 def random_movie(movie_list):
+    actors = []
     random_index = random.randint(0, len(movie_list) - 1)
+    if type(movie_list[random_index]["actor"]) == list:
+        actors = ", ".join(movie_list[random_index]["actor"])
+    else:
+        actors = movie_list[random_index]["actor"]
     sg.popup(
         f"""Your movie is {movie_list[random_index]["title"]}
 The director: {movie_list[random_index]["director"]}
 Duration: {movie_list[random_index]["duration"]} minutes
-Actor: {movie_list[random_index]["actor"]}
+Actor: {actors}
 Available on: {movie_list[random_index]["available"]}
         """,
         title="Your movie",
@@ -76,7 +86,7 @@ def duration_movie(data, duration):
     movies_list = []
     i = 0
     for movie in data["movies"]:
-        if data["movies"][i]["duration"] <= duration:
+        if int(data["movies"][i]["duration"]) <= duration:
             movies_list.append(data["movies"][i])
         i += 1
     if movies_list != []:
