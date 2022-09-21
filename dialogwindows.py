@@ -82,11 +82,11 @@ def choose_actor_window(data):
 def add_movie_window(data):
     layout = [
         [sg.Text("Add a new movie into your list", key="add")],
-        [sg.Text("*Title: "), sg.InputText("The Batman", key="-TITLE-")],
-        [sg.Text("Director: "), sg.InputText("Matt Reeves", key="-DIRECTOR-")],
-        [sg.Text("Actor: "), sg.InputText("Robert Pattinson", key="-ACTOR-")],
-        [sg.Text("Duration: "), sg.InputText("176", key="-DURATION-")],
-        [sg.Text("Available: "), sg.InputText("HBO", key="-AVAILABLE-")],
+        [sg.Text("*Title: "), sg.InputText(key="-TITLE-")],
+        [sg.Text("Director: "), sg.InputText(key="-DIRECTOR-")],
+        [sg.Text("Actor: "), sg.InputText(key="-ACTOR-")],
+        [sg.Text("Duration: "), sg.InputText(key="-DURATION-")],
+        [sg.Text("Available: "), sg.InputText(key="-AVAILABLE-")],
         [sg.Button("OK"), sg.Button("Exit")],
     ]
     window = sg.Window("Add movie", layout, modal=True)
