@@ -54,10 +54,11 @@ if data != []:
             time = sg.popup_get_text(
                 "Enter duration time in minutes. E.g: 90:", title="Enter time"
             )
-            if validate_number(time):
-                duration_movie(data, int(time))
-            else:
-                sg.popup_error("Invalid input. Please, enter number")
+            if time:
+                if validate_number(time):
+                    duration_movie(data, int(time))
+                else:
+                    sg.popup_error("Invalid input. Please, enter number")
         elif event == "Add new movie":
             add_movie_window(data)
         elif event == "Edit list":
