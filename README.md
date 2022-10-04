@@ -21,6 +21,7 @@ Graphical interface is created using PySimpleGUI
 - Retrieve data about movie with API and don't store it locally
 - Display a clickable link to get to the movie
 - Update searching system. Case insensitive, only with name or surname
+- Update search by the duration. Make input more user friendly
 
 ### List format
 ```json
